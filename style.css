@@ -492,6 +492,7 @@ section:not(.hero):not(.marquee) {
   font-weight: 700;
   color: var(--silver);
   letter-spacing: 0.05em;
+.brand-mark { width: 26px; height: 26px; }
 }
 .footer-tagline {
   font-size: 0.85rem;
