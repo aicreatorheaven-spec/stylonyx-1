@@ -13,6 +13,14 @@
 </head>
 <body>
 
+  <div id="loader">
+    <img src="assets/logo.jpg" alt="" class="loader-mark">
+    <span class="loader-count" id="loader-count">0%</span>
+  </div>
+
+  <div class="cursor-dot" id="cursor-dot"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+
   <div class="noise-layer" aria-hidden="true"></div>
   <div class="hero-spotlight" aria-hidden="true"></div>
 
@@ -37,6 +45,7 @@
   <main>
 
     <section class="hero">
+      <canvas id="hero-canvas"></canvas>
       <p class="hero-eyebrow">Lifestyle &amp; Technology</p>
       <h1 class="hero-title">
         <span class="reveal-line">Objects worth</span>
@@ -74,38 +83,48 @@
         <p>Five categories, one standard — nothing enters the line-up unless it earns its place on a shelf.</p>
       </div>
 
-      <ul class="collection-list">
-        <li class="collection-item" data-index="1">
-          <div class="collection-name">
-            <h3>Gadgets &amp; Devices</h3>
-          </div>
-          <p class="collection-desc">Everyday carry reimagined — the small tools people reach for a dozen times a day, judged on how they feel in the hand, not just the spec sheet.</p>
-        </li>
-        <li class="collection-item" data-index="2">
-          <div class="collection-name">
-            <h3>Cameras &amp; Imaging</h3>
-          </div>
-          <p class="collection-desc">Gear for people who shoot to remember, not just to post — bodies, glass and rigs tested through real shoots before they're ever featured.</p>
-        </li>
-        <li class="collection-item" data-index="3">
-          <div class="collection-name">
-            <h3>Audio</h3>
-          </div>
-          <p class="collection-desc">Sound systems and personal audio chosen by ear first — warmth, separation and build quality over a headline spec.</p>
-        </li>
-        <li class="collection-item" data-index="4">
-          <div class="collection-name">
-            <h3>Automotive Accessories</h3>
-          </div>
-          <p class="collection-desc">Interior and exterior upgrades that respect the car they're going into — fit, finish and material quality above all else.</p>
-        </li>
-        <li class="collection-item" data-index="5">
-          <div class="collection-name">
-            <h3>Modern Living</h3>
-          </div>
-          <p class="collection-desc">The objects that quietly run a home — considered, well-made, and built to disappear into daily life instead of cluttering it.</p>
-        </li>
-      </ul>
+      <div class="collections-body">
+        <nav class="collection-rail" aria-hidden="true">
+          <button data-target="cat-1" class="active">01</button>
+          <button data-target="cat-2">02</button>
+          <button data-target="cat-3">03</button>
+          <button data-target="cat-4">04</button>
+          <button data-target="cat-5">05</button>
+        </nav>
+
+        <ul class="collection-list">
+          <li class="collection-item" id="cat-1" data-index="1">
+            <div class="collection-name">
+              <h3>Gadgets &amp; Devices</h3>
+            </div>
+            <p class="collection-desc">Everyday carry reimagined — the small tools people reach for a dozen times a day, judged on how they feel in the hand, not just the spec sheet.</p>
+          </li>
+          <li class="collection-item" id="cat-2" data-index="2">
+            <div class="collection-name">
+              <h3>Cameras &amp; Imaging</h3>
+            </div>
+            <p class="collection-desc">Gear for people who shoot to remember, not just to post — bodies, glass and rigs tested through real shoots before they're ever featured.</p>
+          </li>
+          <li class="collection-item" id="cat-3" data-index="3">
+            <div class="collection-name">
+              <h3>Audio</h3>
+            </div>
+            <p class="collection-desc">Sound systems and personal audio chosen by ear first — warmth, separation and build quality over a headline spec.</p>
+          </li>
+          <li class="collection-item" id="cat-4" data-index="4">
+            <div class="collection-name">
+              <h3>Automotive Accessories</h3>
+            </div>
+            <p class="collection-desc">Interior and exterior upgrades that respect the car they're going into — fit, finish and material quality above all else.</p>
+          </li>
+          <li class="collection-item" id="cat-5" data-index="5">
+            <div class="collection-name">
+              <h3>Modern Living</h3>
+            </div>
+            <p class="collection-desc">The objects that quietly run a home — considered, well-made, and built to disappear into daily life instead of cluttering it.</p>
+          </li>
+        </ul>
+      </div>
     </section>
 
     <section class="manifesto" id="manifesto">
@@ -164,6 +183,7 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
